@@ -1,0 +1,161 @@
+/* ============================================================
+   NEON SNAKE 3D — Global Styles
+   ============================================================ */
+:root {
+  --bg:         #0a0e1a;
+  --bg2:        #0d1225;
+  --cyan:       #00f5ff;
+  --cyan-dim:   rgba(0, 245, 255, 0.15);
+  --violet:     #7c3aed;
+  --violet-dim: rgba(124, 58, 237, 0.15);
+  --green:      #10b981;
+  --red:        #ef4444;
+  --orange:     #f97316;
+  --gold:       #f59e0b;
+  --text:       #e2e8f0;
+  --muted:      #64748b;
+  --glass:      rgba(13, 18, 37, 0.82);
+  --glass-b:    rgba(0, 245, 255, 0.12);
+
+  --radius:  14px;
+  --radius-sm: 8px;
+  --shadow: 0 8px 40px rgba(0,0,0,0.6);
+  --transition: 0.2s cubic-bezier(0.4,0,0.2,1);
+
+  --font: 'Segoe UI', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'Courier New', monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body, #root {
+  width: 100%; height: 100%;
+  overflow: hidden;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  cursor: pointer; border: none; font-family: inherit;
+  transition: all var(--transition);
+}
+
+/* ── Common button system ─────────────────────────────────── */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 12px 22px; border-radius: var(--radius);
+  font-size: 14px; font-weight: 700; letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.btn:active { transform: scale(0.97); }
+
+.btn-primary {
+  background: var(--cyan); color: #000;
+  box-shadow: 0 0 12px rgba(0,245,255,0.4);
+}
+.btn-primary:hover { background: #33faff; box-shadow: 0 0 20px rgba(0,245,255,0.7); }
+
+.btn-secondary {
+  background: rgba(0,245,255,0.1);
+  border: 1.5px solid rgba(0,245,255,0.35);
+  color: var(--cyan);
+}
+.btn-secondary:hover { background: rgba(0,245,255,0.2); }
+
+.btn-ghost-outline {
+  background: transparent;
+  border: 1.5px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.75);
+}
+.btn-ghost-outline:hover { border-color: rgba(255,255,255,0.35); color: #fff; }
+
+.btn-ghost-sm {
+  background: transparent;
+  border: 1px solid var(--muted);
+  color: var(--muted); font-size: 12px;
+  padding: 6px 14px; border-radius: var(--radius-sm);
+}
+.btn-ghost-sm:hover { border-color: var(--text); color: var(--text); }
+
+.btn-cyan { background: var(--cyan); color: #000; font-weight: 700; border-radius: var(--radius-sm); padding: 10px 18px; font-size: 13px; }
+.btn-cyan:hover { filter: brightness(1.1); }
+
+.btn-lg { padding: 16px 32px; font-size: 16px; width: 100%; }
+
+.btn-danger-sm {
+  background: transparent;
+  border: 1px solid rgba(239,68,68,0.4);
+  color: var(--red); font-size: 13px;
+  padding: 8px 16px; border-radius: var(--radius-sm);
+}
+.btn-danger-sm:hover { background: rgba(239,68,68,0.1); }
+
+.glow-cyan { box-shadow: 0 0 16px rgba(0,245,255,0.5); }
+
+.accent-cyan   { color: var(--cyan);   }
+.accent-violet { color: var(--violet); }
+.accent-red    { color: var(--red);    }
+
+/* ── Glass panel ─────────────────────────────────────────── */
+.glass-panel {
+  background: var(--glass);
+  border: 1px solid var(--glass-b);
+  border-radius: var(--radius);
+  backdrop-filter: blur(16px);
+  box-shadow: var(--shadow), 0 0 40px rgba(0,245,255,0.04);
+}
+
+/* ── Toggle button ───────────────────────────────────────── */
+.toggle-btn {
+  padding: 6px 16px; border-radius: 20px;
+  font-size: 12px; font-weight: 700; letter-spacing: 1px;
+  background: rgba(255,255,255,0.06);
+  border: 1.5px solid rgba(255,255,255,0.12);
+  color: var(--muted);
+}
+.toggle-btn.toggle-on {
+  background: rgba(0,245,255,0.12);
+  border-color: rgba(0,245,255,0.4);
+  color: var(--cyan);
+}
+
+/* ── Range slider ────────────────────────────────────────── */
+.range-slider {
+  -webkit-appearance: none; appearance: none;
+  width: 120px; height: 4px;
+  background: rgba(255,255,255,0.1); border-radius: 2px;
+  outline: none;
+}
+.range-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px; height: 16px;
+  background: var(--cyan); border-radius: 50%;
+  box-shadow: 0 0 8px rgba(0,245,255,0.6);
+}
+.range-slider::-moz-range-thumb {
+  width: 16px; height: 16px;
+  background: var(--cyan); border-radius: 50%; border: none;
+}
+.range-val { font-size: 12px; color: var(--cyan); min-width: 36px; text-align: right; }
+
+/* ── Keyboard key ────────────────────────────────────────── */
+.kbd {
+  display: inline-block;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 4px; padding: 2px 7px;
+  font-size: 11px; font-family: var(--font-mono);
+  color: var(--cyan);
+}
+
+/* ── Scrollbar ───────────────────────────────────────────── */
+::-webkit-scrollbar       { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(0,245,255,0.3); border-radius: 2px; }
+
+/* ── Reduced motion ──────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
